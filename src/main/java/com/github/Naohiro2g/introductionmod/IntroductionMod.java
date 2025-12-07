@@ -1,5 +1,8 @@
 package com.github.Naohiro2g.introductionmod;
 
+import com.github.Naohiro2g.introductionmod.block.IntroductionBlocks;
+import com.github.Naohiro2g.introductionmod.item.IntroductionItems;
+import com.github.Naohiro2g.introductionmod.item.IntroductionTabs;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -67,8 +70,12 @@ public class IntroductionMod
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-        // Register the Deferred Register to the mod event bus so blocks get registered
+        //アイテムレジストリをイベントバスに登録
+        IntroductionItems.register(modEventBus);
+        // クリエイティブタブレジストリをイベントバスに登録
+        IntroductionTabs.register(modEventBus);        // Register the Deferred Register to the mod event bus so blocks get registered
         BLOCKS.register(modEventBus);
+        IntroductionBlocks.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
@@ -102,6 +109,10 @@ public class IntroductionMod
     {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
             event.accept(EXAMPLE_BLOCK_ITEM);
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(IntroductionItems.RAW_ORIHALCON);
+            event.accept(IntroductionItems.ORIHALCON_INGOT);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
