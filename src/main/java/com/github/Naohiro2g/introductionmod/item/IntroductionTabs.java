@@ -1,6 +1,7 @@
 package com.github.Naohiro2g.introductionmod.item;
 
 import com.github.Naohiro2g.introductionmod.IntroductionMod;
+import com.github.Naohiro2g.introductionmod.block.IntroductionBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -21,6 +22,7 @@ public class IntroductionTabs {
                     .displayItems(((pParameters,pOutput) -> {
                         pOutput.accept((IntroductionItems.RAW_ORIHALCON.get()));
                         pOutput.accept((IntroductionItems.ORIHALCON_INGOT.get()));
+                        pOutput.accept((IntroductionBlocks.ORIHALCON_BLOCK.get()));
                     }))
                     .build());
     public static void register(IEventBus eventbus) {

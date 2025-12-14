@@ -1,5 +1,6 @@
 {
   "item.introductionmod.raw_orihalcon": "オリハルコンの原石",
   "item.introductionmod.orihalcon_ingot": "オリハルコンのインゴット",
-  "creativetabs.introduction_tab": "入門"
+  "creativetabs.introduction_tab": "入門",
+  "block.introductionmod.orihalcon_block": "オリハルコンブロック"
 }
